@@ -49,19 +49,18 @@
   }
   
   .btn-contact {
-    /* border: 1.5px solid #6912cb; */
     margin-right: 10px;
   }
   
   .btn-signup {
-    /* background-color: #6912cb;  */
     background: linear-gradient(0deg, #6a11cb 0%, #2575fc 100%);
     border: 1px solid #487ff8;
   }
   
   .btn:hover {
     opacity: 0.9;
-    background-color: #340070; 
+    background: linear-gradient(105deg, #6a11cb 0%, #2575fc 100%);
+
 
   }
   

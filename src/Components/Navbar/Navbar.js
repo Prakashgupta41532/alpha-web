@@ -11,7 +11,9 @@ const Navbar = (onPress) => {
     setIsOpen(!isOpen);
   };
   const handlePress = () => { 
-    setIsOpen(!isOpen);
+    if(isOpen == true) {
+      setIsOpen(false);
+    }
     setIsModalOpen(true)
   }
 

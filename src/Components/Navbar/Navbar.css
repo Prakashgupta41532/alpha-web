@@ -1,66 +1,121 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: white;
-    font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.navbar-logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #dddbdb;
+}
+
+.btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-signup {
+  background: linear-gradient(0deg, #6a11cb 0%, #2575fc 100%);
+  border: 1px solid #487ff8;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  background: linear-gradient(105deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar-links.active {
+  display: block;
+  flex-direction: column;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+
+.navbar-links.active li {
+  margin: 10px 20px;
+  padding: 5px 0;
+  border-bottom: 0.5px solid rgb(138, 136, 136);
+}
+.navbar-links.active li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
   }
-  
+
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
   .navbar-logo {
     font-size: 1.5rem;
-    font-weight: bold;
   }
-  
-  .navbar-links {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-links li {
-    margin: 0 15px;
-  }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: white;
-    font-size: .9rem;
-    transition: color 0.3s;
-  }
-  
-  .navbar-links a:hover {
-    color: #dddbdb;
-  }
-  
+
   .btn {
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    padding: 5px 10px;
   }
-  
-  .btn-contact {
-    margin-right: 10px;
-  }
-  
-  .btn-signup {
-    background: linear-gradient(0deg, #6a11cb 0%, #2575fc 100%);
-    border: 1px solid #487ff8;
-  }
-  
-  .btn:hover {
-    opacity: 0.9;
-    background: linear-gradient(105deg, #6a11cb 0%, #2575fc 100%);
-
-
-  }
-  
+}

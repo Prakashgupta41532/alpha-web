@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import SignupModal from "../Screens/LandingScreens/Signup/SignUp";
 
-const Navbar = () => {
+const Navbar = (onPress) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -35,12 +38,14 @@ const Navbar = () => {
             <a href="#contact">Contact Us</a>
           </li>
           <li>
-            <a href="#signup" className="btn btn-signup">
+            <a href="#signup" className="btn btn-signup" onClick={() => setIsModalOpen(true)}>
               Sign Up
             </a>
           </li>
         </ul>
       </div>
+      <SignupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </nav>
   );
 };

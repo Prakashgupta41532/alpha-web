@@ -10,6 +10,10 @@ const Navbar = (onPress) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const handlePress = () => { 
+    setIsOpen(!isOpen);
+    setIsModalOpen(true)
+  }
 
   return (
     <nav className="navbar">
@@ -38,7 +42,7 @@ const Navbar = (onPress) => {
             <a href="#contact">Contact Us</a>
           </li>
           <li>
-            <a href="#signup" className="btn btn-signup" onClick={() => setIsModalOpen(true)}>
+            <a href="#signup" className="btn btn-signup" onClick={handlePress}>
               Sign Up
             </a>
           </li>

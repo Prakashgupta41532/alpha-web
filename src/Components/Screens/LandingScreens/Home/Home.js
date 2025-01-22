@@ -9,7 +9,11 @@ const HomePage = () => {
         <div className="homepage-text">
           <h1>Take Ideas to Production in Seconds, Not Sprints</h1>
           <h4>Accelerate your digital teams with AI-powered design-to-code, visual editing, and enterprise CMS, all in our Visual Development Platform.</h4>
-          <button className="btn-get-started">Get Started</button>
+          <button className="btn-get-started">
+  Get Started
+  <span className="btn-icon">→</span>
+</button>
+
         </div>
         <div className="homepage-image">
           <img src={RightImage} alt="Production" />

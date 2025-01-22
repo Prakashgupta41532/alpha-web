@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh ;
+    height: 100vh ;
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     font-family: "Poppins", sans-serif;
@@ -37,8 +37,26 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 2rem;
-}
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
+}
+.btn-icon {
+    position: absolute;
+    left: -30px; 
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 2rem;
+    color: white;
+    bottom: 5px;
+}
+.btn-get-started:hover .btn-icon {
+    left: 10px;
+    opacity: 1;
+}
 
 .btn-get-started:hover {
     background: linear-gradient(105deg, #6a11cb 0%, #2575fc 100%);
@@ -68,6 +86,9 @@
 }
 
 @media (max-width: 1024px) {
+    .btn-icon {
+        display: none !important;;
+    }
     .homepage-content {
         flex-direction: column-reverse;
         align-items: center;

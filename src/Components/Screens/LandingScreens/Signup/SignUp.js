@@ -5,6 +5,7 @@ const SignupModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");  // New state for username
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -34,6 +35,13 @@ const SignupModal = ({ isOpen, onClose }) => {
       return "Please confirm your password";
     } else if (value !== password) {
       return "Passwords do not match";
+    }
+    return "";
+  };
+
+  const validateUsername = (value) => { 
+    if (!value) {
+      return "Username is required";
     }
     return "";
   };
@@ -71,6 +79,17 @@ const SignupModal = ({ isOpen, onClose }) => {
     }
   };
 
+  const handleUsernameChange = (e) => { 
+    const value = e.target.value;
+    setUsername(value);
+    if (formSubmitted) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        username: validateUsername(value),
+      }));
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -78,17 +97,19 @@ const SignupModal = ({ isOpen, onClose }) => {
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
     const confirmPasswordError = validateConfirmPassword(confirmPassword);
+    const usernameError = validateUsername(username); 
 
-    if (emailError || passwordError || confirmPasswordError) {
+    if (emailError || passwordError || confirmPasswordError || usernameError) {
       setErrors({
         email: emailError,
         password: passwordError,
         confirmPassword: confirmPasswordError,
+        username: usernameError, 
       });
       return;
     }
 
-    alert(`Signup successful! Email: ${email}`);
+    alert(`Signup successful! Username: ${username}, Email: ${email}`);
     onClose();
   };
 
@@ -101,8 +122,23 @@ const SignupModal = ({ isOpen, onClose }) => {
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
+            <label>Username:</label> 
+            <input
+              type="text"
+              value={username}
+              placeholder="Enter your username"
+              onChange={handleUsernameChange}
+            />
+            {errors.username && <p className="error-message">{errors.username}</p>}
+          </div>
+          <div className="input-group">
             <label>Email:</label>
-            <input type="email" value={email} placeholder="Enter your email" onChange={handleEmailChange} />
+            <input
+              type="email"
+              value={email}
+              placeholder="Enter your email"
+              onChange={handleEmailChange}
+            />
             {errors.email && <p className="error-message">{errors.email}</p>}
           </div>
           <div className="input-group">

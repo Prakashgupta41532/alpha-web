@@ -1,15 +1,15 @@
-import React from "react";
+import { ImageData } from "assets/imageData";
 import "./Home.css";
-import RightImage from "../../../../assets/NewImg.png";
 import { useNavigate } from "react-router-dom";
 
-const HomePage = () => {
+
+const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
     navigate("/dashboard");
   };
-  
+
   return (
     <div className="homepage">
       <div className="homepage-content">
@@ -25,7 +25,7 @@ const HomePage = () => {
           </button>
         </div>
         <div className="homepage-image">
-          <img src={RightImage} alt="Production" />
+          <img src={ImageData.NewImage} alt="Production" />
         </div>
       </div>
     </div>
